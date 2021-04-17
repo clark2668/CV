@@ -20,7 +20,7 @@
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
 \documentclass{resume} % Use the custom resume.cls style
-\usepackage{hyperref}
+%\usepackage{hyperref}
 \usepackage{etaremune}
 \usepackage{tabularx}
 %\pagestyle{plain}
@@ -35,6 +35,8 @@
 %\fancyhead[LO,LE]{\textit{Curriculum Vitae --Brian A. Clark}}
 %\fancyfoot[RO,RE]{\thepage}
 
+% good page: https://github.com/rgeirhos/academic-cv-publications.git
+
 \newenvironment{list1}{
   \begin{list}{\ding{113}}{%
       \setlength{\itemsep}{0in}
@@ -45,68 +47,81 @@
 \usepackage[left=0.75in,top=0.65in,right=0.75in,bottom=0.6in]{geometry} % Document margins
 \name{Brian A. Clark} % Your name
 
+% as bibentry and hyperref clash in some cases, this is a workaround
+% as suggested by the following two links:
+%https://tex.stackexchange.com/questions/227933/using-bibentry-to-cite-in-text-reference-with-apacite
+% and
+%https://tex.stackexchange.com/questions/65348/clash-between-bibentry-and-hyperref-with-bibstyle-elsart-harv/65401#65401
+\usepackage{bibentry}
+\makeatletter\let\saved@bibitem\@bibitem\makeatother
+\usepackage[colorlinks=true]{hyperref}
+\makeatletter\let\@bibitem\saved@bibitem\makeatother
 
-%\address{B-1 \\ II , U.P. 208016} % Your address
-%\address{123 Pleasant Lane \\ City, State 12345} % Your secondary addess (optional)
-%\address{(+1)~7hh~9~8486 \\ x@ii.yzac.in} % Your phone number and email
+
+\usepackage{hanging}
+\newcommand\publication[1]{%
+	\smallskip\par\hangpara{1.5em}{1}\bibentry{#1}\smallskip
+}
+
 
 \begin{document}
 
-%----------------------------------------------------------------------------------------
-%	CONTACT
-%----------------------------------------------------------------------------------------
-
-\vspace{-1cm}
-%\begin{rSection}{CONTACT}
-\rule{\textwidth}{0.1cm} \\ \\
-\begin{tabular}{@{}p{2in}p{4in}}
-191 W. Woodruff Ave             & {\it Phone:}  (614) 247-8268 \\            
-Physics Research Building   & {\it Email:}  clark.2668@osu.edu 
- \\         
-The Ohio State University & {\it Website:} \url{u.osu.edu/clark.2668} \\       
-Columbus, OH  43210 USA  & {\it OrcID / inSPIRE:} \,\,      \href{https://orcid.org/0000-0003-4089-2245}{0000-0003-4089-2245}  / \href{https://inspirehep.net/author/profile/Brian.A.Clark.1}{Brian.A.Clark.1}\\     
-\end{tabular}
-
-I am a co-author on all Askaryan Radio Array (ARA) papers and proceedings from 2016 and forward.
+%I am a co-author on all Askaryan Radio Array (ARA) papers and proceedings from 2016 and forward.
 
 %----------------------------------------------------------------------------------------
 %	PUBLICATIONS
 %----------------------------------------------------------------------------------------
-\begin{rSection}{REFEREED PUBLICATIONS}
-\begin{etaremune}%[leftmargin=0.64cm]
-  \item ``Design and Performance of an Interferometric Trigger Array for Radio Detection of High-Energy Neutrinos" \\
- P. Allison {\it et. al.} for the ARA Collaboration (incl. \textbf{B. A. Clark}) \\
- Submitted to Nuclear Instruments and Methods A (2018). \href{https://arxiv.org/abs/1809.04573}{[arXiv:1809.04573]}
- \item ``Observation of Reconstructable Radio Emission Coincident with an X-Class Solar Flare in the Askaryan Radio Array Prototype Station." \\
- P. Allison {\it et. al.} for the ARA Collaboration (incl. \textbf{B. A. Clark} as corresponding author) \\
- Submitted to Astroparticle Physics (2018). \href{https://arxiv.org/abs/1807.03335}{[arXiv:1807.03335]}
-  \item ``Measurement of the real dielectric permittivity $\epsilon_r$ of glacial ice." \\
- P. Allison {\it et. al.} for the ARA Collaboration (incl. \textbf{B. A. Clark}) \\
-  \href{https://doi.org/10.1016/j.astropartphys.2019.01.004}{Astroparticle Physics Vol 108 Pg 63-73 (2019).} \href{https://arxiv.org/abs/1712.03301}{[arXiv:1712.03301]} 
-   \item ``Analyzing the Data from X-ray Polarimeters with Stokes Parameters." \\
- F. Kislat,  \textbf{B. Clark}, M. Bielicke, H. Krawczynski.  \\
-  \href{http://dx.doi.org/10.1016/j.astropartphys.2015.02.007}{Astroparticle Physics Vol 68 Pg 45-51 (2015).} \href{https://arxiv.org/abs/1409.6214}{[arXiv:1409.6214]} 
- \end{etaremune}
-\end{rSection}
+%\begin{rSection}{REFEREED PUBLICATIONS}
+%Some words
+%\end{rSection}
 
-%----------------------------------------------------------------------------------------
-%	PROCEEDINGS
-%----------------------------------------------------------------------------------------
+	% bibliography
+	\nobibliography{INSPIRE-CiteAll.bib}
+	\bibliographystyle{abbrv}	
 
-\begin{rSection}{PROCEEDINGS, etc.}
+	\section*{Publications}	
+	
+	% optional: split into different subsections for
+	% peer-reviewed articles, conference abstracts, ...
 
-\begin{etaremune}%[leftmargin=0.64cm]
+	% example with links
+%	\publication{Geirhos2017}
+%		(\href{https://arxiv.org/abs/1706.06969}{link}, \href{https://arxiv.org/pdf/1706.06969.pdf}{pdf}, %\href{https://github.com/rgeirhos/object-recognition}{data and materials})
+	
+	% example without links
+	\publication{Abbasi:2021czc}
+\publication{IceCube:2021rpz}
+\publication{Abbasi:2021ryj}
+\publication{Abbasi:2021bvk}
+\publication{Abbasi:2021vxg}
+\publication{Abbasi:2020mwj}
+\publication{Abbasi:2020aae}
+\publication{Abbasi:2020dfi}
+\publication{Abbasi:2020ddb}
+\publication{Abbasi:2020luf}
+\publication{Abbasi:2020zmr}
+\publication{Abbasi:2020jmh}
+\publication{Aguilar:2020xnc}
+\publication{AyalaSolares:2021ene}
+\publication{Aartsen:2020fgd}
+\publication{Aartsen:2020hzn}
+\publication{IceCube:2020yct}
+\publication{Aartsen:2020fwb}
+\publication{Aartsen:2020iky}
+\publication{Aartsen:2020mla}
+\publication{Aartsen:2020eof}
+\publication{Aartsen:2020tdl}
+\publication{Garca-Fernndez:2020bnd}
+\publication{Allison:2019xtn}
+\publication{Aartsen:2019swn}
+\publication{Allison:2019rgg}
+\publication{Aguilar:2019jay}
+\publication{Allison:2019urx}
+\publication{Glaser:2019cws}
+\publication{Allison:2018ynt}
+\publication{Allison:2018whu}
+\publication{Abdul:2017luv}
+\publication{Kislat:2015cha}
 
-%\hspace{-1cm} {\bf ARENA 2016}
-%\vspace{-0.25cm}
-%\hspace{-1cm} {\bf 7th International Conference on Acoustic and Radio EeV Neutrino Detection Activities}
-
-	\item ``Ultra-high energy neutrino search with the Askaryan Radio Array" \\
- M. Lu {\it et. al.} for the ARA Collaboration (incl. \textbf{B. A. Clark}) \\
-   \href{http://dx.doi.org/10.1016/j.astropartphys.2015.02.007}{Proceedings of Science Vol 301 966 (2017).} \href{https://doi.org/10.22323/1.301.0966}{[https://doi.org/10.22323/1.301.0966]} 
-
- \end{etaremune}
-
-\end{rSection}
 
 \end{document}
