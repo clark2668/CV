@@ -1,0 +1,152 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Medium Length Professional CV
+% LaTeX Template
+% Version 2.0 (8/5/13)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Trey Hunner (http://www.treyhunner.com/)
+%
+% Important note:
+% This template requires the resume.cls file to be in the same directory as the
+% .tex file. The resume.cls file provides the resume style used for structuring the
+% document.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+\documentclass{resume} % Use the custom resume.cls style
+%\usepackage{hyperref}
+\usepackage{etaremune}
+\usepackage{tabularx}
+%\pagestyle{plain}
+%\pagestyle{myheadings}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\vspace{0.3cm}\textit{Publication List -- Brian A. Clark --} \thepage} 
+\renewcommand{\headrulewidth}{0pt}
+%\fancyhead{}
+%\fancyfoot{}
+%\fancyhead[LO,LE]{\textit{Curriculum Vitae --Brian A. Clark}}
+%\fancyfoot[RO,RE]{\thepage}
+
+% good page: https://github.com/rgeirhos/academic-cv-publications.git
+% could also look here: http://www.hansenlab.org/cv_bibliography_tex
+% maybe this: https://www.btskinner.io/code/academic-cv-with-latex-and-biber/
+% maybe this: http://randyklabacka.com/2020/07/02/LaTeX_CreateModernCV.html
+
+\newenvironment{list1}{
+  \begin{list}{\ding{113}}{%
+      \setlength{\itemsep}{0in}
+      \setlength{\parsep}{0in} \setlength{\parskip}{0in}
+      \setlength{\topsep}{0in} \setlength{\partopsep}{0in} 
+      \setlength{\leftmargin}{0.17in}}}{\end{list}}
+
+\usepackage[left=0.75in,top=0.65in,right=0.75in,bottom=0.6in]{geometry} % Document margins
+\name{Brian A. Clark} % Your name
+
+% as bibentry and hyperref clash in some cases, this is a workaround
+% as suggested by the following two links:
+%https://tex.stackexchange.com/questions/227933/using-bibentry-to-cite-in-text-reference-with-apacite
+% and
+%https://tex.stackexchange.com/questions/65348/clash-between-bibentry-and-hyperref-with-bibstyle-elsart-harv/65401#65401
+\usepackage{bibentry}
+\makeatletter\let\saved@bibitem\@bibitem\makeatother
+\usepackage[colorlinks=true]{hyperref}
+\makeatletter\let\@bibitem\saved@bibitem\makeatother
+
+
+\usepackage{hanging}
+\newcommand\publication[1]{%
+	\smallskip\par\hangpara{1.5em}{1}\bibentry{#1}\smallskip
+}
+
+
+\begin{document}
+
+%I am a co-author on all Askaryan Radio Array (ARA) papers and proceedings from 2016 and forward.
+% also hold: http://www.hansenlab.org/cv_bibliography_tex
+
+%----------------------------------------------------------------------------------------
+%	PUBLICATIONS
+%----------------------------------------------------------------------------------------
+%\begin{rSection}{REFEREED PUBLICATIONS}
+%Some words
+%\end{rSection}
+
+	% bibliography
+	\nobibliography{INSPIRE-CiteAll.bib}
+	\bibliographystyle{unsrt}	
+
+	\section*{Publications}	
+	
+	% optional: split into different subsections for
+	% peer-reviewed articles, conference abstracts, ...
+
+	% example with links
+%	\publication{Geirhos2017}
+%		(\href{https://arxiv.org/abs/1706.06969}{link}, \href{https://arxiv.org/pdf/1706.06969.pdf}{pdf}, %\href{https://github.com/rgeirhos/object-recognition}{data and materials})
+	
+	% example without links
+\publication{IceCube:2021vlt}
+\publication{IceCube:2021gpn}
+\publication{IceCube:2021ahz}
+\publication{IceCube:2021kcv}
+\publication{IceCube:2021wvc}
+\publication{IceCube:2021ldz}
+\publication{IceCube:2021ixw}
+\publication{IceCube:2021oiv}
+\publication{IceCube:2021jhz}
+\publication{Hallmann:2021kqk}
+\publication{Clark:2021uwb}
+\publication{IceCube:2021rmo}
+\publication{IceCube:2021xps}
+\publication{IceCube:2021imv}
+\publication{IceCube:2021fyh}
+\publication{IceCube-Gen2:2021yep}
+\publication{ICECUBE:2021edr}
+\publication{Aguilar:2021uzt}
+\publication{IceCube:2021abg}
+\publication{IceCube:2021ddq}
+\publication{IceCube:2021oqo}
+\publication{Abbasi:2021ryj}
+\publication{IceCube:2021xar}
+\publication{IceCube:2021jwt}
+\publication{IceCube:2020tcq}
+\publication{IceCube:2020mzw}
+\publication{IceCube:2020nig}
+\publication{IceCube:2020qls}
+\publication{IceCube:2020rnc}
+\publication{IceCube:2020abv}
+\publication{IceCube:2020wum}
+\publication{RNO-G:2020rmc}
+\publication{AMONTeam:2020otr}
+\publication{IceCube-Gen2:2020qha}
+\publication{IceCube:2020bsn}
+\publication{IceCube:2020yct}
+\publication{IceCube:2020tka}
+\publication{IceCube:2020phf}
+\publication{IceCube:2020xks}
+\publication{IceCube:2020svz}
+\publication{ANTARES:2020leh}
+\publication{IceCube:2020wxa}
+\publication{ARA:2019wcf}
+\publication{IceCube:2019pna}
+\publication{Allison:2019rgg}
+\publication{Aguilar:2019jay}
+\publication{ARA:2019uvt}
+\publication{Glaser:2019cws}
+\publication{Clark:2019ady}
+\publication{Allison:2018ynt}
+\publication{Allison:2018whu}
+\publication{Allison:2017jpy}
+\publication{Kislat:2014sdf}
+
+
+
+\end{document}
